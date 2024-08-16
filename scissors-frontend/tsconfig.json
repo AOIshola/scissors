@@ -12,5 +12,6 @@
     "module": "NodeNext",
     "allowJs": true,
     "types": ["vite/client"]
-  }
+  },
+  "include": ["./**/.*{ts,tsx}"]
 }
