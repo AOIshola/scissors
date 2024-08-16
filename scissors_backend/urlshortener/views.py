@@ -44,7 +44,7 @@ class UrlShortenerView(APIView):
         data = {
             'long_url': long_url,
             'url_code': url_code,
-            'short_url': f"http://localhost:8000/{url_code}",
+            'short_url': f"https://scissors-nuaz.onrender.com/{url_code}",
             'user': user.id if user else None  # Link the user if authenticated
         }
 

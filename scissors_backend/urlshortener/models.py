@@ -16,8 +16,8 @@ class Url(models.Model):
         default=None
     )
     long_url = models.URLField()
-    short_url = models.CharField(max_length=40, unique=True)
-    url_code = models.CharField(max_length=10, unique=True)
+    short_url = models.CharField(max_length=50, unique=True)
+    url_code = models.CharField(max_length=15, unique=True)
     date_shortened = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
