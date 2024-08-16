@@ -1,3 +1,4 @@
+import os
 import environ
 from pathlib import Path
 
@@ -19,7 +20,8 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
+# ALLOWED_HOSTS = []
 
 
 # Application definition
