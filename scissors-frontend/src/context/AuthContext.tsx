@@ -14,6 +14,7 @@ type AuthContextType = {
     user: User | null
     isRegistered: boolean;
     isAuthorized: boolean;
+    loading: boolean;
     setIsAuthorized: (isAuthorized: boolean) => void
     setIsRegistered: (isRegistered: boolean) => void
     loginUser: (userData: { email: string; password: string }) => Promise<string | void>;
@@ -49,7 +50,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
                 const accessToken = response.data.access_token
                 const refreshToken = response.data.refresh_token
                 const currentUser = response.data
-                console.log(response)
+                // console.log(response)
                 localStorage.setItem(ACCESS_TOKEN, accessToken)
                 localStorage.setItem(REFRESH_TOKEN, refreshToken)
                 localStorage.setItem('user', JSON.stringify(currentUser))
@@ -97,7 +98,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
 
     const logoutUser = async () => {
-        const token = localStorage.getItem(REFRESH_TOKEN)
         localStorage.removeItem(ACCESS_TOKEN)
         localStorage.removeItem(REFRESH_TOKEN)
         localStorage.removeItem('user')
@@ -197,16 +197,15 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     return (
         <AuthContext.Provider
             value={{
+                loading,
                 user,
                 isRegistered,
                 isAuthorized,
                 setIsAuthorized,
                 setIsRegistered,
-                // resendOtp,
                 loginUser,
                 logoutUser,
                 registerUser,
-                // resetPassword
             }}>
             { children }
         </AuthContext.Provider>

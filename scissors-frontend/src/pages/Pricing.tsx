@@ -1,4 +1,3 @@
-import React from 'react'
 import PricingCard from '../components/PricingCard'
 import { PricingCardProps } from '../components/PricingCard'
 

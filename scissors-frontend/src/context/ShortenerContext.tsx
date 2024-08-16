@@ -25,6 +25,7 @@ export const ShortenerContextProvider = ({ children }: ShortenerContextProviderP
     const shortenUrl = async (url: UrlUser) => {
         try {
             console.log("Sending request with headers:", back.defaults.headers);
+            console.log(back.toString())
             const response = await back.post('/api/shorten/', url)
             console.log(response)
             setShortUrl(response.data.short_url)
