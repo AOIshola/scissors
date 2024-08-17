@@ -5,6 +5,7 @@ import Tabs from '../components/Tabs'
 import Options from '../components/Options'
 import { useEffect, useState } from 'react'
 import { QRCodeSVG } from 'qrcode.react'
+import { useAuth } from '../context/AuthContext'
 // import Pricing from './Pricing'
 
 function LandingPage() {
@@ -15,6 +16,7 @@ function LandingPage() {
     const [range, setRange] = useState(8)
     const [errorMsg, setErrorMsg] = useState(false)
     const [selectedTab, setSelectedTab] = useState(0)
+    const { user } = useAuth()
 
     useEffect(() => {
         custom_code.length > 10 ? setErrorMsg(true) : setErrorMsg(false)
@@ -110,7 +112,6 @@ function LandingPage() {
 
     return (
         <div>
-            {/* <Pricing /> */}
             <section className='w-full h-fit rounded-md py-5'>
                 <div className='flex flex-col items-center h-full gap-4'>
                     <motion.div
@@ -124,10 +125,12 @@ function LandingPage() {
                         </h1>
                         <div className='w-[90%] flex flex-col items-center justify-center my-4 mx-auto text-left text-lg text-black'>
                             <h3 className='text-xl'>Simplify your online presence with our powerful URL shortening service.</h3>
-                            <h3 className='text-2xl font-semibold'>Get started now!</h3>
+                            <h3 className='text-2xl font-semibold'>
+                                {user ? `Try it now!` : `Get started now!`}
+                            </h3>
                         </div>
                     </motion.div>
-                    <div className='bg-slate-50 w-[60%] h-[40vh] self-center border' style={{backgroundImage: `url("../src/assets/react.svg")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center center', backgroundSize: 'contain'}}>
+                    <div className='bg-slate-50 w-[60%] h-[40vh] self-center border' style={{backgroundImage: `url("/react.svg")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center center', backgroundSize: 'contain'}}>
                         {/* <img src="../src/assets/react.svg" alt="my_image" /> */}
                     </div>
                 </div>

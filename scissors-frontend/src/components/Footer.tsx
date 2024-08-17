@@ -15,7 +15,7 @@ function Footer() {
                     <div className='flex flex-row justify-between border-b-2 border-black h-14 w-[60%]'>
                         <input type="search" name="" placeholder='Your Email' className=' text-lg bg-transparent border-none active:border-none'/>
                         <button className='pr-8 font-semibold text-lg'
-                        style={{backgroundImage: `url('../src/assets/react.svg')`,
+                        style={{backgroundImage: `url('/react.svg')`,
                             backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center right'}}>
                             Sign Up</button>
                     </div>
