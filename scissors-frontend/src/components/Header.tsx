@@ -29,8 +29,6 @@ function Header() {
     }, [])
 
     const handleLogout = (): void => {
-        // e.preventDefault();
-        // console.log('logging out')
         setIsLoading(true);
     
         setTimeout(() => {

@@ -16,6 +16,7 @@ function LandingPage() {
     const [range, setRange] = useState(8)
     const [errorMsg, setErrorMsg] = useState(false)
     const [selectedTab, setSelectedTab] = useState(0)
+    const [loading, setLoading] = useState(false)
     const { user } = useAuth()
 
     useEffect(() => {
@@ -31,8 +32,9 @@ function LandingPage() {
             option
         }
         try {
-            // console.log(data)
+            setLoading(true)
             await shortenUrl(data)
+            setLoading(false)
         } catch (error) {
             console.error(error)
         }
@@ -146,7 +148,7 @@ function LandingPage() {
                                 showRange={selectedTab === 0}/>
                             <button type='submit'
                                 className='w-36 h-12 my-3 bg-blue-400 self-center rounded-md font-bold'
-                                onClick={shorten}>Cut</button>
+                                onClick={shorten}>{loading ? `Cutting...` :`Cut`}</button>
                         </div>
                 </div>
                 {/* <div>
