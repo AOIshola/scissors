@@ -78,7 +78,7 @@ function LandingPage() {
                         name='long_url'
                         placeholder='Enter your url here'
                         className='bg-amber-50 pl-10 border border-blue-400 h-12 w-full px-2'
-                        style={{backgroundImage: `url('../../src/assets/link.png')`,
+                        style={{backgroundImage: `url('/link.png')`,
                             backgroundRepeat: 'no-repeat',
                             backgroundPosition: '7px 7px'}}
                         value={long_url}
